@@ -1,0 +1,25 @@
+app:
+  name: TSVuetesApp
+  port: 8080
+
+# database:
+#   dsn: "host=localhost user=postgres password=1qazxsw2 dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+
+database:
+  dsn: "host=db user=postgres password=1qazxsw2 dbname=postgressql port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+# 跨域请求
+# cors:
+#   allow_origins: "http://47.242.39.174:3000"
+#   allow_methods:
+#     - "PUT"
+#     - "POST"
+#     - "GET"
+#     - "OPTIONS"
+#   allow_headers:
+#     - "Origin"
+#     - "Content-Type"
+#     - "Authorization"
+#   expose_headers:
+#     - "Content-Length"
+#   allow_credentials: true
+#   max_age: 43200  # 12 小时，单位是秒
