@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         // 定义 Docker 镜像的名称
-        FRONTEND_IMAGE = 'TSVuetes_frontend'
-        BACKEND_IMAGE = 'TSVuetes_backend'
+        FRONTEND_IMAGE = 'tsvuetes_frontend'
+        BACKEND_IMAGE = 'tsvuetes_backend'
     }
 
     stages {
