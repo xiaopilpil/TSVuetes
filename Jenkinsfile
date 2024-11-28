@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:23-slim'
-        }
-    }  // 表示该任务在任何可用的 Jenkins 节点上运行
+    agent any // 表示该任务在任何可用的 Jenkins 节点上运行
 
     environment {
         // 定义 Docker 镜像的名称
