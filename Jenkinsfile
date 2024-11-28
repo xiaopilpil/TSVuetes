@@ -5,6 +5,8 @@ pipeline {
         // 定义 Docker 镜像的名称
         FRONTEND_IMAGE = 'tsvuetes_frontend'
         BACKEND_IMAGE = 'tsvuetes_backend'
+        FRONTEND_DIR = './TSVuetes_frontend' // 前端代码所在目录
+
     }
 
     stages {
