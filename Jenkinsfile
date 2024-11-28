@@ -1,5 +1,9 @@
 pipeline {
     agent any  // 表示该任务在任何可用的 Jenkins 节点上运行
+    
+    tools {
+        nodejs 'Node 16'  // 使用在 Jenkins 中配置的 Node 16 版本
+    }
 
     environment {
         // 定义 Docker 镜像的名称
