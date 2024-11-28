@@ -18,6 +18,10 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 script {
+                    // 确保 npm 安装了所有依赖
+                    sh "cd $FRONTEND_DIR && npm install"
+                    // 执行前端构建，生成 dist 目录
+                    sh "cd $FRONTEND_DIR && npm run build"
                     // 在 Docker 容器中构建前端 Vue 项目
                     sh 'docker build -t $FRONTEND_IMAGE ./TSVuetes_frontend'
                 }
