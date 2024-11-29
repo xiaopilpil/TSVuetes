@@ -24,7 +24,8 @@ pipeline {
                 }
             }
         }
-        
+    }
+
     stages {
         stage('Checkout') {
             steps {
