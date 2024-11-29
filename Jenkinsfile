@@ -2,6 +2,11 @@ pipeline {
     agent any // 表示该任务在任何可用的 Jenkins 节点上运行
 
     environment {
+        // 获取之前创建的 Docker 凭证 ID（例如：docker-hub-credentials-id）
+        DOCKER_CREDENTIALS = credentials('docker-hub-credentials-id')
+    }
+
+    environment {
         // 定义 Docker 镜像的名称
         FRONTEND_IMAGE = 'tsvuetes_frontend'
         BACKEND_IMAGE = 'tsvuetes_backend'
@@ -9,6 +14,17 @@ pipeline {
 
     }
 
+
+    stages {
+        stage('Docker Login') {
+            steps {
+                script {
+                    // 使用凭证登录 Docker
+                    sh "echo ${DOCKER_CREDENTIALS_USR}:${DOCKER_CREDENTIALS_PSW} | docker login -u ${DOCKER_CREDENTIALS_USR} --password-stdin"
+                }
+            }
+        }
+        
     stages {
         stage('Checkout') {
             steps {
