@@ -1,32 +1,28 @@
 pipeline {
-    agent any // 表示该任务在任何可用的 Jenkins 节点上运行
+    agent any  // 表示该任务在任何可用的 Jenkins 节点上运行
 
     environment {
         // 获取之前创建的 Docker 凭证 ID（例如：docker-hub-credentials-id）
         DOCKER_CREDENTIALS = credentials('docker-hub-credentials-id')
-    }
-
-    environment {
+        
         // 定义 Docker 镜像的名称
         FRONTEND_IMAGE = 'tsvuetes_frontend'
         BACKEND_IMAGE = 'tsvuetes_backend'
-        FRONTEND_DIR = './TSVuetes_frontend' // 前端代码所在目录
-
+        FRONTEND_DIR = './TSVuetes_frontend'  // 前端代码所在目录
     }
-
 
     stages {
         stage('Docker Login') {
             steps {
                 script {
                     // 使用凭证登录 Docker
-                    sh "echo ${DOCKER_CREDENTIALS_USR}:${DOCKER_CREDENTIALS_PSW} | docker login -u ${DOCKER_CREDENTIALS_USR} --password-stdin"
+                    sh """
+                        echo ${DOCKER_CREDENTIALS_USR}:${DOCKER_CREDENTIALS_PSW} | docker login -u ${DOCKER_CREDENTIALS_USR} --password-stdin
+                    """
                 }
             }
         }
-    }
 
-    stages {
         stage('Checkout') {
             steps {
                 // 拉取最新的代码
@@ -42,7 +38,7 @@ pipeline {
                     // 执行前端构建，生成 dist 目录
                     sh "cd $FRONTEND_DIR && npm run build"
                     // 在 Docker 容器中构建前端 Vue 项目
-                    sh 'docker build -t $FRONTEND_IMAGE ./TSVuetes_frontend'
+                    sh 'docker build -t $FRONTEND_IMAGE $FRONTEND_DIR'
                 }
             }
         }
@@ -72,7 +68,7 @@ pipeline {
                     // 停止并删除现有的前端容器
                     sh 'docker stop TSVuetes_frontend || true && docker rm TSVuetes_frontend || true'
                     // 启动新的前端容器
-                    sh 'docker run -d --name TSVuetes_backend -p 3000:3000 $TSVuetes_backend'
+                    sh 'docker run -d --name TSVuetes_frontend -p 3000:3000 $FRONTEND_IMAGE'
                 }
             }
         }
