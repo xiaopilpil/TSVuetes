@@ -66,7 +66,7 @@ pipeline {
                     // 停止并删除现有的后端容器
                     sh 'docker stop TSVuetes_backend || true && docker rm TSVuetes_backend || true'
                     // 启动新的后端容器
-                    sh 'docker run -d --name TSVuetes_backend -p 8080:8080 $BACKEND_IMAGE'
+                    sh 'docker run -d --name TSVuetes_backend -p 8081:8080 $BACKEND_IMAGE'
                 }
             }
         }
