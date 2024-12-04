@@ -24,7 +24,7 @@ func SetupRouter() *gin.Engine {
 	// }))
 
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://47.242.39.174:3000"},
+		AllowOrigins:     []string{"http://8.217.36.14:3000"},
 		AllowMethods:     []string{"PUT", "POST", "GET", "OPTIONS"},
 		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
 		ExposeHeaders:    []string{"Content-Length"},

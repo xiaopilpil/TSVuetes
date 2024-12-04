@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         // 定义 Docker 镜像的名称
-        FRONTEND_IMAGE = 'xiaopilpil/tsvuetes_frontend'
-        BACKEND_IMAGE = 'xiaopilpil/tsvuetes_backend'
+        FRONTEND_IMAGE = 'xiaopilpil/ketang-backend:3.0'
+        BACKEND_IMAGE = 'xiaopilpil/ketang-frontend:3.0'
         FRONTEND_DIR = './TSVuetes_frontend'  // 前端代码所在目录
     }
 
