@@ -3,10 +3,10 @@ app:
   port: 8080
 
 # database:
-#   dsn: "host=localhost user=postgres password=1qazxsw2 dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+#   dsn: "host=localhost user=postgres password=123456 dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Shanghai"
 
 database:
-  dsn: "host=db user=postgres password=1qazxsw2 dbname=postgressql port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+  dsn: "host=db user=postgres password=123456 dbname=postgressql port=5432 sslmode=disable TimeZone=Asia/Shanghai"
 # 跨域请求
 # cors:
 #   allow_origins: "http://47.242.39.174:3000"
